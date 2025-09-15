@@ -3,308 +3,154 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Explore Me on Different Platforms</title>
+    <title>My Clean Profile</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* Custom animation for platform cards */
-        .platform-card {
+        .profile-container {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .polygon-bg {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4f2f7 100%);
+            z-index: -2;
+        }
+        
+        .polygon {
+            position: absolute;
+            opacity: 0.1;
+            z-index: -1;
+        }
+        
+        .polygon-1 {
+            top: 10%;
+            left: 5%;
+            width: 100px;
+            height: 100px;
+            background: #4b6cb7;
+            clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+        }
+        
+        .polygon-2 {
+            top: 30%;
+            right: 10%;
+            width: 80px;
+            height: 80px;
+            background: #4b6cb7;
+            clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+        }
+        
+        .polygon-3 {
+            bottom: 15%;
+            left: 15%;
+            width: 120px;
+            height: 120px;
+            background: #4b6cb7;
+            clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
+        }
+        
+        .polygon-4 {
+            bottom: 25%;
+            right: 20%;
+            width: 60px;
+            height: 60px;
+            background: #4b6cb7;
+            clip-path: polygon(50% 0%, 90% 20%, 100% 60%, 75% 100%, 25% 100%, 0% 60%, 10% 20%);
+        }
+        
+        .profile-img {
+            border: 4px solid #2b6cb0;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+        
+        .profile-img:hover {
+            transform: scale(1.05);
+        }
+        
+        .social-btn {
             transition: all 0.3s ease;
-            transform-style: preserve-3d;
-        }
-        .platform-card:hover {
-            transform: translateY(-8px) scale(1.03);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
         }
         
-        /* Custom glow effect for active platform */
-        .active-platform {
-            animation: glow 2s infinite alternate;
-        }
-        @keyframes glow {
-            from {
-                box-shadow: 0 0 5px -5px #3b82f6;
-            }
-            to {
-                box-shadow: 0 0 15px 5px #3b82f6;
-            }
+        .social-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+            background-color: #f7fafc;
         }
         
-        /* Custom scrollbar for platforms container */
-        .platforms-container::-webkit-scrollbar {
-            height: 6px;
-        }
-        .platforms-container::-webkit-scrollbar-track {
-            background: #f1f1f1;
-            border-radius: 10px;
-        }
-        .platforms-container::-webkit-scrollbar-thumb {
-            background: #888;
-            border-radius: 10px;
-        }
-        .platforms-container::-webkit-scrollbar-thumb:hover {
-            background: #555;
+        @media (min-width: 1024px) {
+            .profile-container {
+                max-width: 28rem;
+            }
         }
     </style>
 </head>
-<body class="bg-gradient-to-br from-gray-900 via-purple-900 to-violet-600 min-h-screen text-white">
-    <div class="container mx-auto px-4 py-8">
-        <!-- Header Section -->
-        <header class="text-center mb-12">
-            <h1 class="text-4xl md:text-5xl font-bold mb-4 animate-pulse">Explore Me Across Platforms</h1>
-            <p class="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto">
-                Discover my digital presence across various platforms where I share my work, thoughts, and creativity.
-            </p>
-            <div class="mt-6 relative max-w-md mx-auto">
-                <input 
-                    type="text" 
-                    id="search-platforms" 
-                    placeholder="Search platforms..." 
-                    class="w-full px-4 py-3 rounded-full bg-gray-800 text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
-                >
-                <button class="absolute right-3 top-3 text-gray-400 hover:text-white">
-                    <i class="fas fa-search"></i>
-                </button>
+<body class="min-h-screen flex items-center justify-center p-4 bg-gray-50">
+    <div class="profile-container w-full max-w-md bg-white rounded-3xl shadow-xl overflow-hidden relative">
+        <!-- Background elements -->
+        <div class="polygon-bg"></div>
+        <div class="polygon polygon-1"></div>
+        <div class="polygon polygon-2"></div>
+        <div class="polygon polygon-3"></div>
+        <div class="polygon polygon-4"></div>
+        
+        <!-- Profile content -->
+        <div class="p-8">
+            <div class="flex flex-col items-center mb-8">
+                <img src="C:\Users\PRAVIN\OneDrive\Desktop\Explore\profile.jpg" alt="Profile" class="profile-img w-32 h-32 rounded-full object-cover mb-4">
+                <h1 class="text-2xl font-bold text-blue-800">pravinuttare</h1>
+                <p class="text-blue-600 mt-2 text-center">Hope this helps you know me better </p>
             </div>
-        </header>
-
-        <!-- Main Content -->
-        <main>
-            <!-- Platform Categories -->
-            <div class="flex justify-center mb-8 overflow-x-auto pb-2 platforms-container">
-                <div class="flex space-x-2 md:space-x-4">
-                    <button 
-                        class="category-btn px-4 py-2 rounded-full bg-blue-600 hover:bg-blue-700 transition-all active-platform" 
-                        data-category="all"
-                    >
-                        All Platforms
-                    </button>
-                    <button 
-                        class="category-btn px-4 py-2 rounded-full bg-gray-800 hover:bg-gray-700 transition-all" 
-                        data-category="social"
-                    >
-                        <i class="fas fa-users mr-2"></i> Social
-                    </button>
-                    <button 
-                        class="category-btn px-4 py-2 rounded-full bg-gray-800 hover:bg-gray-700 transition-all" 
-                        data-category="coding"
-                    >
-                        <i class="fas fa-code mr-2"></i> Coding
-                    </button>
-                    <button 
-                        class="category-btn px-4 py-2 rounded-full bg-gray-800 hover:bg-gray-700 transition-all" 
-                        data-category="music"
-                    >
-                        <i class="fas fa-music mr-2"></i> Music
-                    </button>
-                </div>
+            
+            <div class="space-y-4">
+                <!-- YouTube -->
+                <a href="#" class="social-btn w-full flex items-center p-4 bg-white rounded-xl border border-gray-200">
+                    <i class="fab fa-youtube text-2xl text-blue-800 mr-4"></i>
+                    <span class="flex-1 text-blue-800 font-medium">YouTube</span>
+                    <i class="fas fa-chevron-right text-blue-800"></i>
+                </a>
+                
+                <!-- Instagram -->
+                <a href="#" class="social-btn w-full flex items-center p-4 bg-white rounded-xl border border-gray-200">
+                    <i class="fab fa-instagram text-2xl text-blue-800 mr-4"></i>
+                    <span class="flex-1 text-blue-800 font-medium">Instagram</span>
+                    <i class="fas fa-chevron-right text-blue-800"></i>
+                </a>
+                
+                <!-- Twitter/X -->
+                <a href="#" class="social-btn w-full flex items-center p-4 bg-white rounded-xl border border-gray-200">
+                    <i class="fab fa-twitter text-2xl text-blue-800 mr-4"></i>
+                    <span class="flex-1 text-blue-800 font-medium">X / Twitter</span>
+                    <i class="fas fa-chevron-right text-blue-800"></i>
+                </a>
+                
+                <!-- WhatsApp -->
+                <a href="#" class="social-btn w-full flex items-center p-4 bg-white rounded-xl border border-gray-200">
+                    <i class="fab fa-whatsapp text-2xl text-blue-800 mr-4"></i>
+                    <span class="flex-1 text-blue-800 font-medium">WhatsApp Channel</span>
+                    <i class="fas fa-chevron-right text-blue-800"></i>
+                </a>
+                
+                <!-- Telegram -->
+                <a href="#" class="social-btn w-full flex items-center p-4 bg-white rounded-xl border border-gray-200">
+                    <i class="fab fa-telegram text-2xl text-blue-800 mr-4"></i>
+                    <span class="flex-1 text-blue-800 font-medium">Telegram</span>
+                    <i class="fas fa-chevron-right text-blue-800"></i>
+                </a>
+                
+                <!-- LinkedIn -->
+                <a href="#" class="social-btn w-full flex items-center p-4 bg-white rounded-xl border border-gray-200">
+                    <i class="fab fa-linkedin text-2xl text-blue-800 mr-4"></i>
+                    <span class="flex-1 text-blue-800 font-medium">LinkedIn</span>
+                    <i class="fas fa-chevron-right text-blue-800"></i>
+                </a>
             </div>
-
-            <!-- Platforms Grid -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6" id="platforms-grid">
-                <!-- Platform Cards will be injected here by JavaScript -->
-            </div>
-        </main>
-
-        <!-- Contact Section -->
-        <section class="mt-16 text-center bg-gray-800 bg-opacity-50 rounded-xl p-8 backdrop-blur-sm">
-            <h2 class="text-3xl font-bold mb-4">Let's Connect!</h2>
-            <p class="text-gray-300 mb-6 max-w-2xl mx-auto">
-                Feel free to reach out to me on any of these platforms or via email. I'm always open to collaborations and interesting conversations.
-            </p>
-            <button class="px-6 py-3 bg-gradient-to-r from-purple-600 to-blue-500 rounded-full font-semibold hover:from-purple-700 hover:to-blue-600 transition-all">
-                <i class="fas fa-envelope mr-2"></i> Send Me a Message
-            </button>
-        </section>
-    </div>
-
-    <!-- Footer -->
-    <footer class="mt-16 py-6 border-t border-gray-800 text-center text-gray-400">
-        <p>© 2023 My Digital Presence. All rights reserved.</p>
-        <div class="flex justify-center space-x-4 mt-4">
-            <a href="#" class="hover:text-white transition"><i class="fab fa-github fa-lg"></i></a>
-            <a href="#" class="hover:text-white transition"><i class="fab fa-twitter fa-lg"></i></a>
-            <a href="#" class="hover:text-white transition"><i class="fab fa-linkedin fa-lg"></i></a>
-            <a href="#" class="hover:text-white transition"><i class="fab fa-instagram fa-lg"></i></a>
         </div>
-    </footer>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Platform data
-            const platforms = [
-                {
-                    name: "GitHub",
-                    category: "coding",
-                    icon: "fab fa-github",
-                    color: "bg-blue-800",
-                    url: "https://github.com/PravinUttare",
-                    description: "Check out my open-source projects and code repositories.",
-                    username: "@PravinUttare"
-                },
-                {
-                    name: "Twitter",
-                    category: "social",
-                    icon: "fab fa-twitter",
-                    color: "bg-blue-400",
-                    url: "https://twitter.com",
-                    description: "Follow me for daily thoughts, tech news, and random musings.",
-                    username: "@mytwitterhandle"
-                },
-                {
-                    name: "LinkedIn",
-                    category: "social",
-                    icon: "fab fa-linkedin",
-                    color: "bg-blue-600",
-                    url: "https://www.linkedin.com/in/pravin-ankush-uttare-145678196/",
-                    description: "Connect with me professionally and view my work experience.",
-                    username: "@Pravin Ankush Uttare"
-                },
-                {
-                    name: "Instagram",
-                    category: "social",
-                    icon: "fab fa-instagram",
-                    color: "bg-gradient-to-r from-purple-500 to-pink-500",
-                    url: "https://instagram.com",
-                    description: "See my personal life, photography, and creative work.",
-                    username: "@pravinuttare"
-                },
-                {
-                    name: "CodePen",
-                    category: "coding",
-                    icon: "fab fa-codepen",
-                    color: "bg-black",
-                    url: "https://codepen.io",
-                    description: "Check out my front-end experiments and UI components.",
-                    username: "@mycodepen"
-                },
-                {
-                    name: "Spotify",
-                    category: "music",
-                    icon: "fab fa-spotify",
-                    color: "bg-green-500",
-                    url: "https://spotify.com",
-                    description: "Listen to my playlists and music recommendations.",
-                    username: "@Rancho"
-                },
-                {
-                    name: "YouTube",
-                    category: "social",
-                    icon: "fab fa-youtube",
-                    color: "bg-red-600",
-                    url: "https://youtube.com",
-                    description: "Watch my tutorials, vlogs, and creative content.",
-                    username: "@PravinUttare"
-                },
-                {
-                    name: "Medium",
-                    category: "social",
-                    icon: "fab fa-medium",
-                    color: "bg-gray-800",
-                    url: "https://medium.com",
-                    description: "Read my articles on technology, design, and life.",
-                    username: "@mymedium"
-                },
-                {
-                    name: "Stack Overflow",
-                    category: "coding",
-                    icon: "fab fa-stack-overflow",
-                    color: "bg-orange-500",
-                    url: "https://stackoverflow.com",
-                    description: "See my contributions to the developer community.",
-                    username: "@mystackoverflow"
-                },
-                {
-                    name: "SoundCloud",
-                    category: "music",
-                    icon: "fab fa-soundcloud",
-                    color: "bg-orange-600",
-                    url: "https://soundcloud.com",
-                    description: "Listen to my music creations and audio projects.",
-                    username: "@mysoundcloud"
-                }
-            ];
-
-            // DOM elements
-            const platformsGrid = document.getElementById('platforms-grid');
-            const categoryBtns = document.querySelectorAll('.category-btn');
-            const searchInput = document.getElementById('search-platforms');
-
-            // Display all platforms initially
-            displayPlatforms(platforms);
-
-            // Category filter functionality
-            categoryBtns.forEach(btn => {
-                btn.addEventListener('click', function() {
-                    // Update active category button
-                    categoryBtns.forEach(b => b.classList.remove('active-platform', 'bg-blue-600'));
-                    this.classList.add('active-platform', 'bg-blue-600');
-                    
-                    const category = this.dataset.category;
-                    let filteredPlatforms = platforms;
-                    
-                    if (category !== 'all') {
-                        filteredPlatforms = platforms.filter(platform => platform.category === category);
-                    }
-                    
-                    displayPlatforms(filteredPlatforms);
-                });
-            });
-
-            // Search functionality
-            searchInput.addEventListener('input', function() {
-                const searchTerm = this.value.toLowerCase();
-                const filteredPlatforms = platforms.filter(platform => 
-                    platform.name.toLowerCase().includes(searchTerm) || 
-                    platform.description.toLowerCase().includes(searchTerm)
-                );
-                
-                displayPlatforms(filteredPlatforms);
-            });
-
-            // Function to display platforms
-            function displayPlatforms(platformsToShow) {
-                platformsGrid.innerHTML = '';
-                
-                if (platformsToShow.length === 0) {
-                    platformsGrid.innerHTML = `
-                        <div class="col-span-full text-center py-12">
-                            <i class="fas fa-search fa-3x mb-4 text-gray-500"></i>
-                            <h3 class="text-2xl font-semibold">No platforms found</h3>
-                            <p class="text-gray-400 mt-2">Try a different search term or category</p>
-                        </div>
-                    `;
-                    return;
-                }
-                
-                platformsToShow.forEach(platform => {
-                    const platformCard = document.createElement('div');
-                    platformCard.className = 'platform-card bg-gray-800 rounded-xl overflow-hidden hover:shadow-lg transition-all duration-300 flex flex-col';
-                    platformCard.innerHTML = `
-                        <div class="h-40 ${platform.color} flex items-center justify-center">
-                            <i class="${platform.icon} text-5xl text-white"></i>
-                        </div>
-                        <div class="p-6 flex-grow">
-                            <h3 class="text-xl font-bold mb-2">${platform.name}</h3>
-                            <p class="text-gray-400 mb-4">${platform.description}</p>
-                            <div class="text-sm text-gray-300 mb-4">
-                                <i class="fas fa-user mr-2"></i> ${platform.username}
-                            </div>
-                        </div>
-                        <div class="px-6 pb-6">
-                            <a 
-                                href="${platform.url}" 
-                                target="_blank" 
-                                class="block w-full py-2 text-center rounded-md bg-opacity-20 hover:bg-opacity-30 transition ${platform.color.replace('bg-', 'bg-')} text-white font-medium"
-                            >
-                                Visit Profile
-                            </a>
-                        </div>
-                    `;
-                    platformsGrid.appendChild(platformCard);
-                });
-            }
-        });
-    </script>
+    </div>
 </body>
 </html>
